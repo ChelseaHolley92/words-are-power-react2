@@ -1,5 +1,5 @@
-import Footer from './components/Footer.jsx';
 import React, { useState, useEffect } from 'react';
+import Footer from './components/Footer.jsx';
 import Header from './components/Header';
 import AffirmationBox from './components/AffirmationBox';
 import Button from './components/Button.jsx';
@@ -40,6 +40,8 @@ const handleSaveAffirmation = () => {
     setSavedAffrimations(updatedAffirmations);
     localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
     alert("Affirmation saved!");
+  } else {
+    alert("No affirmation to save!");
   }
 
      const handleSaveName =(name) => {
@@ -54,9 +56,7 @@ const handleSaveAffirmation = () => {
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
 
-    console.log("Filtered Affirmations:", filteredAffirmations);
-
-    if (filteredAffirmations.length === 0) {
+      if (filteredAffirmations.length === 0) {
       setCurrentAffirmation(`${userName} , No affirmations available for this category `);
                  return;
             }
@@ -74,7 +74,7 @@ const handleSaveAffirmation = () => {
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation} />
                 <Button onClick={handleGenerateAffirmation} text="Get New Affirmation"/>
-                <Button onClick={handleSaveAffirmation}>Save Affirmation</Button>
+                <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
 
