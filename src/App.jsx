@@ -86,13 +86,18 @@ const handleSaveAffirmation = () => {
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
+                
 
                 <div className="saved-affirmations">
                   <h2>Saved Affirmations</h2>
                   <ul>
-                    {savedAffirmations.map((affirmation, index) => (
-                      <li key={index}>{affirmation}</li>
-                    ))}
+                    {savedAffirmations && savedAffirmations.length > 0? (
+                    savedAffirmations.map((affirmation, index) => (
+                      <li key={index}>{affirmation.text}</li>
+                    ))
+                  ) : (
+                    <p>No saved affirmations yet.</p>
+                  )}
                   </ul>
 
                   <Footer />
