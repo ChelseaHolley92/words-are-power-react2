@@ -1,5 +1,5 @@
 import Footer from './components/Footer.jsx';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import AffirmationBox from './components/AffirmationBox';
 import Button from './components/Button.jsx';
