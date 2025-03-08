@@ -27,12 +27,12 @@ const App = () => {
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffrimations] = useState([]);
-}
 
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
-   }, []);    
+   }, []);
+  }    
    
 const handleSaveAffirmation = () => {
   if (currentAffirmation) {
