@@ -28,34 +28,31 @@ const App = () => {
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffrimations] = useState([]);
 
+   const handleSaveName =(name) => {
+    setUserName(name);
+    localStorage.setItem("userName", name);
+   };
+
    useEffect(() => {
-    console.log("Saved Affirmations", savedAffirmations);
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
     }, []);
-   
-   return (
-    <div>
-      <h1>Affirmation App</h1>
-    </div>
-   );
-  };
+
+    const handleSaveAffirmation = () => {
+      if (currentAffirmation) {
+        const updatedAffirmations = [...savedAffirmations, currentAffirmation];
+        setSavedAffirmation(updatedAffirmations);
+        localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+        alert("Affirmation saved!");
+      } else {
+        console.log("No affirmation to save!")
+      }
+    };
+    
 
    
-const handleSaveAffirmation = () => {
-  if (currentAffirmation) {
-    const updatedAffirmations = [...savedAffirmations, currentAffirmation];
-    setSavedAffrimations(updatedAffirmations);
-    localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
-    alert("Affirmation saved!");
-  } else {
-    alert("No affirmation to save!");
-  }
 
-     const handleSaveName =(name) => {
-      setUserName(name);
-      localStorage.setItem("userName", name);
-     };
+     
       
    const handleGenerateAffirmation = () => {
    
