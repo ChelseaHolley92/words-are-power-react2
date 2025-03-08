@@ -73,7 +73,8 @@ const handleSaveAffirmation = () => {
                 <Header />
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation} />
-                <Button onClick={handleGenerateAffirmation} />
+                <Button onClick={handleGenerateAffirmation} text="Get New Affirmation"/>
+                <Button onClick={handleSaveAffirmation}>Save Affirmation</Button>
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
 
@@ -84,6 +85,8 @@ const handleSaveAffirmation = () => {
                       <li key={index}>{affirmation}</li>
                     ))}
                   </ul>
+
+                  <Footer />
                 </div>
               </div>
             );
