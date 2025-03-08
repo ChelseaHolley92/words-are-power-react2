@@ -35,17 +35,21 @@ const App = () => {
 
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
-    setSavedAffrimations(saved);
     console.log("Saved Affirmations Retrieved:", saved);
-    }, []);
+    setSavedAffrimations(saved);
+   }, []);
 
     const handleSaveAffirmation = () => {
       if (currentAffirmation) {
-        const updatedAffirmations = [...savedAffirmations, currentAffirmation];
+        console.log("Saving affirmation:", currentAffirmation);
+
+          const updatedAffirmations = [...savedAffirmations, currentAffirmation];
+          console.log("Updated Saved Affirmations:", updatedAffirmations);
+
         setSavedAffirmation(updatedAffirmations);
         localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
-        console.log("Saved Affirmations Updated:" , updatedAffirmations);
-        alert("Affirmation saved!");
+
+         alert("Affirmation saved!");
       } else {
         console.log("No affirmation to save!")
       }
@@ -75,7 +79,6 @@ const App = () => {
                 <Header />
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation} />
-                <Button onClick={handleGenerateAffirmation} text="Get New Affirmation"/>
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
