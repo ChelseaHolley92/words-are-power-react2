@@ -36,7 +36,7 @@ const App = () => {
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
-    console.log("Saved Affirmations:", saved);
+    console.log("Saved Affirmations Retrieved:", saved);
     }, []);
 
     const handleSaveAffirmation = () => {
@@ -44,17 +44,14 @@ const App = () => {
         const updatedAffirmations = [...savedAffirmations, currentAffirmation];
         setSavedAffirmation(updatedAffirmations);
         localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+        console.log("Saved Affirmations Updated:" , updatedAffirmations);
         alert("Affirmation saved!");
       } else {
         console.log("No affirmation to save!")
       }
     };
     
-
-   
-
-     
-      
+            
    const handleGenerateAffirmation = () => {
    
     const filteredAffirmations = selectedCategory === "All"
