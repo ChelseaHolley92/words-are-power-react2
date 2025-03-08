@@ -26,11 +26,22 @@ const App = () => {
    const [selectedCategory, setSelectedCategory] = useState("All");
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
+   const [savedAffirmations, setSavedAffrimations] = useState([]);
+
+   useEffect(()) => {
+    const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
+    setSavedAffrimations(saved);
+   }, []);    
    
+const handleSaveAffirmation = () => {
+  if (currentAffirmation) {
+    const updatedAffirmations = [...savedAffirmations, currentAffirmation];
+    setSavedAffrimations(updatedAffirmations);
+    localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+
      const handleSaveName =(name) => {
       setUserName(name);
       localStorage.setItem("userName", name);
-      console.log("Saved Name:", name);
      };
       
    const handleGenerateAffirmation = () => {
