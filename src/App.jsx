@@ -26,7 +26,7 @@ const App = () => {
    const [selectedCategory, setSelectedCategory] = useState("All");
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
-   const [savedAffirmations, setSavedAffrimations] = useState([]);
+   const [savedAffirmations, setSavedAffirmation] = useState([]);
 
    const handleSaveName =(name) => {
     setUserName(name);
@@ -36,7 +36,7 @@ const App = () => {
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     console.log("Saved Affirmations Retrieved:", saved);
-    setSavedAffrimations(saved);
+    setSavedAffirmation(saved);
    }, []);
 
     const handleSaveAffirmation = () => {
@@ -57,7 +57,7 @@ const App = () => {
     
             
    const handleGenerateAffirmation = () => {
-   
+    console.log("Generating new affirmation...");
     const filteredAffirmations = selectedCategory === "All"
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
