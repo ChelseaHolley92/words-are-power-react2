@@ -1,3 +1,4 @@
+import Footer from './components/Footer.jsx';
 import React, { useState } from 'react';
 import Header from './components/Header';
 import AffirmationBox from './components/AffirmationBox';
@@ -60,6 +61,7 @@ const App = () => {
                 <AffirmationBox affirmation={currentAffirmation} />
                 <Button onClick={handleGenerateAffirmation} />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
+                <Footer />
               </div>
             );
           }
