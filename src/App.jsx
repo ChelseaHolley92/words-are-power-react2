@@ -36,6 +36,7 @@ const App = () => {
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
+    console.log("Saved Affirmations:", saved);
     }, []);
 
     const handleSaveAffirmation = () => {
@@ -86,7 +87,7 @@ const App = () => {
                 <div className="saved-affirmations">
                   <h2>Saved Affirmations</h2>
                   <ul>
-                    {savedAffirmations && savedAffirmations.length > 0? (
+                    {savedAffirmations.length > 0? (
                     savedAffirmations.map((affirmation, index) => (
                       <li key={index}>{affirmation.text}</li>
                     ))
