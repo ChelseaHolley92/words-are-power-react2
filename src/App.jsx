@@ -32,7 +32,16 @@ const App = () => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
    }, []);
-  }    
+   
+   return (
+    <div>
+      <h1>Affirmation App</h1>
+    </div>
+   );
+  };
+
+
+
    
 const handleSaveAffirmation = () => {
   if (currentAffirmation) {
