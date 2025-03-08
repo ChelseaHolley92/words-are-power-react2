@@ -40,8 +40,6 @@ const App = () => {
    );
   };
 
-
-
    
 const handleSaveAffirmation = () => {
   if (currentAffirmation) {
@@ -59,8 +57,7 @@ const handleSaveAffirmation = () => {
      };
       
    const handleGenerateAffirmation = () => {
-    console.log("Selected Category:", selectedCategory);
-
+   
     const filteredAffirmations = selectedCategory === "All"
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
