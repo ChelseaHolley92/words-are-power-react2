@@ -39,6 +39,7 @@ const handleSaveAffirmation = () => {
     const updatedAffirmations = [...savedAffirmations, currentAffirmation];
     setSavedAffrimations(updatedAffirmations);
     localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+    alert("Affirmation saved!");
   }
 
      const handleSaveName =(name) => {
