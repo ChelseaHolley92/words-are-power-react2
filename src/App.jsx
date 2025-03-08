@@ -29,9 +29,10 @@ const App = () => {
    const [savedAffirmations, setSavedAffrimations] = useState([]);
 
    useEffect(() => {
+    console.log("Saved Affirmations", savedAffirmations);
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
-   }, []);
+    }, []);
    
    return (
     <div>
