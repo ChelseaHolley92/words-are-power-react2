@@ -27,8 +27,9 @@ const App = () => {
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffrimations] = useState([]);
+}
 
-   useEffect(()) => {
+   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
     setSavedAffrimations(saved);
    }, []);    
@@ -38,6 +39,7 @@ const handleSaveAffirmation = () => {
     const updatedAffirmations = [...savedAffirmations, currentAffirmation];
     setSavedAffrimations(updatedAffirmations);
     localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+  }
 
      const handleSaveName =(name) => {
       setUserName(name);
@@ -75,13 +77,22 @@ const handleSaveAffirmation = () => {
                 <Footer />
               </div>
             );
-          }
+};  
+                    
+          
         
+
+
+
+
+
+
+
 export default App;
+
+        
+
             
   
             
-
-            
-
-  
+        
