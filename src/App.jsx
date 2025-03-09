@@ -77,10 +77,10 @@ const App = () => {
             console.log("Random Index:", randomIndex);
 
             let newAffirmation = filteredAffirmations[randomIndex];
+
             console.log("New Affirmation Selected", newAffirmation);
 
               newAffirmation= `${userName} , ${filteredAffirmations[randomIndex]}`;
-
             console.log("Selected Affirmation:", newAffirmation);
 
             setCurrentAffirmation(newAffirmation);
