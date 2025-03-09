@@ -50,18 +50,29 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-   const filteredAffirmations = selectedCategory === "All"
+    console.log("Get New Affirmation");
+
+     const filteredAffirmations = selectedCategory === "All"
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+
+    console.log("Filtered Affirmations:", filteredAffirmations);
+
       if (filteredAffirmations.length === 0) {
       setCurrentAffirmation(`${userName} , No affirmations available for this category `);
+      console.log("No affirmation available");
                  return;
             }
+
             const randomIndex = Math.floor(Math.random() * filteredAffirmations.length);
-            setCurrentAffirmation( `${userName} , ${filteredAffirmations[randomIndex].text}`);
+            const newAffirmation=( `${userName} , ${filteredAffirmations[randomIndex].text}`);
+
+            console.log("Selected Affirmation:", newAffirmation);
+
+            setCurrentAffirmation(newAffirmation);
+
           };
 
-          setCurrentAffirmation(newAffirmation);
           const handleCategoryChange = (event) => {
             setSelectedCategory(event.target.value);
           };
@@ -71,6 +82,7 @@ const App = () => {
                 <Header />
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation} />
+                <Button onClick={handleSaveAffirmation} text="Get New Affirmation" />
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
