@@ -58,7 +58,7 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-    console.log("Generating new affirmation...")
+    console.log("Generating new affirmation...");
 
     const filteredAffirmations = 
     selectedCategory === "All"
@@ -76,15 +76,15 @@ const App = () => {
             const randomIndex = Math.floor(Math.random() * filteredAffirmations.length);
             console.log("Random Index:", randomIndex);
 
-            let newAffirmation = filteredAffirmations[randomIndex];
+            let newAffirmationText = filteredAffirmations[randomIndex].text;
 
-            console.log("New Affirmation Selected", newAffirmation);
+            console.log("New Affirmation Selected", newAffirmationText);
 
-              newAffirmation= `${userName} , ${filteredAffirmations[randomIndex]}`;
+              let formattedAffirmation = `${userName} , ${newAffirmationText}`;
             console.log("Selected Affirmation:", newAffirmation);
 
             setCurrentAffirmation(newAffirmation);
-            console.log("Current Affirmation Updated in State:", newAffirmation);
+            console.log("Current Affirmation Updated in State:", formattedAffirmation);
 
           };
 
