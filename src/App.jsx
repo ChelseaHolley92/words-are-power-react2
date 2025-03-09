@@ -34,6 +34,9 @@ const App = () => {
    };
 
    useEffect(() => {
+    console.log("Current Affirmation Updated in UI:", currentAffirmation);
+
+
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
      setSavedAffirmation(saved);
    }, []);
@@ -50,11 +53,21 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-    console.log("Get New Affirmation");
+    console.log("Generating new affirmation...");
+   
+   
+
+    const sampleAffirmations = [
+      "You are strong.",
+      "Believe in yourself!",
+      "You are enough."
+    ];
+
+    console.log("Sample Affirmations:", sampleAffirmations);
 
      const filteredAffirmations = selectedCategory === "All"
-    ? affirmations
-    : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+    ? sampleAffirmations
+    : sampleAffirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
 
     console.log("Filtered Affirmations:", filteredAffirmations);
 
@@ -65,11 +78,17 @@ const App = () => {
             }
 
             const randomIndex = Math.floor(Math.random() * filteredAffirmations.length);
-            const newAffirmation=( `${userName} , ${filteredAffirmations[randomIndex].text}`);
+            console.log("Random Index:", randomIndex);
+
+            let newAffirmation =sampleAffirmations[randomIndex];
+            console.log("New Affirmation Selected", newAffirmation);
+
+              newAffirmation= `${userName} , ${filteredAffirmations[randomIndex]}`;
 
             console.log("Selected Affirmation:", newAffirmation);
 
             setCurrentAffirmation(newAffirmation);
+            console.log("Current Affirmation Updated in State:", newAffirmation);
 
           };
 
@@ -81,8 +100,8 @@ const App = () => {
               <div className="app-container">
                 <Header />
                 <NameInput onSave={handleSaveName} />
-                <AffirmationBox affirmation={currentAffirmation} />
-                <Button onClick={handleSaveAffirmation} text="Get New Affirmation" />
+                <AffirmationBox affirmation={currentAffirmation}  /> 
+                <Button onClick={handleGenerateAffirmation} text="Get New Affirmation" />
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
