@@ -58,10 +58,13 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-    const filteredAffirmations = selectedCategory === "All"
-    ? filteredAffirmations
-    : filteredAffirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+    console.log("Generating new affirmation...")
 
+    const filteredAffirmations = 
+    selectedCategory === "All"
+    ? affirmations
+    : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+    
     console.log("Filtered Affirmations:", filteredAffirmations);
 
       if (filteredAffirmations.length === 0) {
@@ -73,7 +76,7 @@ const App = () => {
             const randomIndex = Math.floor(Math.random() * filteredAffirmations.length);
             console.log("Random Index:", randomIndex);
 
-            let newAffirmation =sampleAffirmations[randomIndex];
+            let newAffirmation = filteredAffirmations[randomIndex];
             console.log("New Affirmation Selected", newAffirmation);
 
               newAffirmation= `${userName} , ${filteredAffirmations[randomIndex]}`;
