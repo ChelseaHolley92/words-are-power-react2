@@ -35,39 +35,24 @@ const App = () => {
 
    useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
-    console.log("Saved Affirmations Retrieved:", saved);
-    setSavedAffirmation(saved);
+     setSavedAffirmation(saved);
    }, []);
 
     const handleSaveAffirmation = () => {
-      console.log("Saving affirmation:", currentAffirmation);
-      if (!currentAffirmation || currentAffirmation.includes("No affirmation available")) {
-        console.log("No valid affirmation to save!");
-
+       if (currentAffirmation)  {
           const updatedAffirmations = [...savedAffirmations, currentAffirmation];
-          console.log("Updated Saved Affirmations:", updatedAffirmations);
-
-        setSavedAffirmation(updatedAffirmations);
+          setSavedAffirmation(updatedAffirmations);
         localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
-
-        console.log("Saved Affirmations:", updatedAffirmations);
-
-         alert("Affirmation saved!");
+        alert("Affirmation saved!");
       } else {
-        console.log("No affirmation to save!")
+        alert("No affirmation to save!");
       }
     };
-    
-            
+             
    const handleGenerateAffirmation = () => {
-    console.log("Generating new affirmation...");
-
-    const filteredAffirmations = selectedCategory === "All"
+   const filteredAffirmations = selectedCategory === "All"
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
-
-      console.log("Filtered Affirmations:", filteredAffirmations);
-
       if (filteredAffirmations.length === 0) {
       setCurrentAffirmation(`${userName} , No affirmations available for this category `);
                  return;
@@ -76,10 +61,7 @@ const App = () => {
             setCurrentAffirmation( `${userName} , ${filteredAffirmations[randomIndex].text}`);
           };
 
-          console.log("New Affirmation:", newAffirmation);
-
           setCurrentAffirmation(newAffirmation);
-
           const handleCategoryChange = (event) => {
             setSelectedCategory(event.target.value);
           };
