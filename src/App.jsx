@@ -40,14 +40,17 @@ const App = () => {
    }, []);
 
     const handleSaveAffirmation = () => {
-      if (currentAffirmation) {
-        console.log("Saving affirmation:", currentAffirmation);
+      console.log("Saving affirmation:", currentAffirmation);
+      if (!currentAffirmation || currentAffirmation.includes("No affirmation available")) {
+        console.log("No valid affirmation to save!");
 
           const updatedAffirmations = [...savedAffirmations, currentAffirmation];
           console.log("Updated Saved Affirmations:", updatedAffirmations);
 
         setSavedAffirmation(updatedAffirmations);
         localStorage.setItem("savedAffirmations", JSON.stringify(updatedAffirmations));
+
+        console.log("Saved Affirmations:", updatedAffirmations);
 
          alert("Affirmation saved!");
       } else {
@@ -58,9 +61,12 @@ const App = () => {
             
    const handleGenerateAffirmation = () => {
     console.log("Generating new affirmation...");
+
     const filteredAffirmations = selectedCategory === "All"
     ? affirmations
     : affirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+
+      console.log("Filtered Affirmations:", filteredAffirmations);
 
       if (filteredAffirmations.length === 0) {
       setCurrentAffirmation(`${userName} , No affirmations available for this category `);
@@ -69,6 +75,10 @@ const App = () => {
             const randomIndex = Math.floor(Math.random() * filteredAffirmations.length);
             setCurrentAffirmation( `${userName} , ${filteredAffirmations[randomIndex].text}`);
           };
+
+          console.log("New Affirmation:", newAffirmation);
+
+          setCurrentAffirmation(newAffirmation);
 
           const handleCategoryChange = (event) => {
             setSelectedCategory(event.target.value);
