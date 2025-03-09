@@ -27,21 +27,26 @@ const App = () => {
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffirmation] = useState([]);
+   const [theme, setTheme] =useState(localStorage.getItem("theme") || "light");
+   
+   const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+   };
 
-   const handleSaveName =(name) => {
+   useEffect(() => {
+    document.body.className = theme;
+    const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
+     setSavedAffirmation(saved);
+  }, [theme]);
+   
+  const handleSaveName =(name) => {
     setUserName(name);
     localStorage.setItem("userName", name);
    };
 
-   useEffect(() => {
-    console.log("Current Affirmation Updated in UI:", currentAffirmation);
-
-
-    const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
-     setSavedAffirmation(saved);
-   }, []);
-
-    const handleSaveAffirmation = () => {
+        const handleSaveAffirmation = () => {
        if (currentAffirmation)  {
           const updatedAffirmations = [...savedAffirmations, currentAffirmation];
           setSavedAffirmation(updatedAffirmations);
@@ -53,10 +58,6 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-    console.log("Generating new affirmation...");
-   
-   
-
     const sampleAffirmations = [
       "You are strong.",
       "Believe in yourself!",
@@ -97,7 +98,11 @@ const App = () => {
           };
                     
                return (
-              <div className="app-container">
+              <div className={`app-container ${theme} `}>
+                <button onClick={toggleTheme} className="theme-toggle-btn">
+                  {theme === "light" ? "Dark Mode" : "Light Mode"}
+                </button>
+
                 <Header />
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation}  /> 
@@ -105,35 +110,29 @@ const App = () => {
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
-                
 
-                <div className="saved-affirmations">
+                
+                   <div className="saved-affirmations">
                   <h2>Saved Affirmations</h2>
-                  <ul>
-                    {savedAffirmations.length > 0? (
-                    savedAffirmations.map((affirmation, index) => (
+                  {savedAffirmations.length > 0? (
+                     <ul>
+                      {savedAffirmations.map((affirmation, index) => (
                       <li key={index}>{affirmation.text}</li>
-                    ))
+                    ))}
+                    </ul>
                   ) : (
                     <p>No saved affirmations yet.</p>
                   )}
-                  </ul>
+                 </div>
 
                   <Footer />
-                </div>
+                
               </div>
             );
-};  
+          };              
+
                     
-          
-        
-
-
-
-
-
-
-
+             
 export default App;
 
         
@@ -141,4 +140,4 @@ export default App;
             
   
             
-        
+
