@@ -58,17 +58,9 @@ const App = () => {
     };
              
    const handleGenerateAffirmation = () => {
-    const sampleAffirmations = [
-      "You are strong.",
-      "Believe in yourself!",
-      "You are enough."
-    ];
-
-    console.log("Sample Affirmations:", sampleAffirmations);
-
-     const filteredAffirmations = selectedCategory === "All"
-    ? sampleAffirmations
-    : sampleAffirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
+    const filteredAffirmations = selectedCategory === "All"
+    ? filteredAffirmations
+    : filteredAffirmations.filter((a) => a.category.toLowerCase() === selectedCategory.toLowerCase());
 
     console.log("Filtered Affirmations:", filteredAffirmations);
 
