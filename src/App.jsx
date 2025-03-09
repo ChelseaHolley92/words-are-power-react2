@@ -80,11 +80,11 @@ const App = () => {
 
             console.log("New Affirmation Selected", newAffirmationText);
 
-              let formattedAffirmation = `${userName} , ${newAffirmationText}`;
-            console.log("Selected Affirmation:", newAffirmation);
+              let newAffirmation = `${userName} , ${newAffirmationText}`;
+            console.log("Formatted Affirmation:", newAffirmation);
 
             setCurrentAffirmation(newAffirmation);
-            console.log("Current Affirmation Updated in State:", formattedAffirmation);
+            console.log("Current Affirmation Updated in State:", newAffirmation);
 
           };
 
