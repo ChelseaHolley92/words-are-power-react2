@@ -30,7 +30,14 @@ const App = () => {
    const [theme, setTheme] =useState(localStorage.getItem("theme") || "light");
    
    const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+    let newTheme;
+
+    if (theme === "light") {
+      newTheme = "dark";
+    } else if (theme === "dark")  {
+      newTheme = "pastel";
+    } else {
+      newTheme = "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
    };
@@ -135,4 +142,3 @@ export default App;
             
   
             
-
