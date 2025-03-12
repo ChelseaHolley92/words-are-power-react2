@@ -6,7 +6,7 @@ import AffirmationBox from './components/AffirmationBox';
 import Button from './components/Button.jsx';
 import CategoryDropdown from './components/CategoryDropdown';
 import NameInput from './components/NameInput';
-import SavedAffirmations from './SavedAffirmations';
+import SavedAffirmations from './components/SavedAffirmations';
 import  './App.css';
 
 
