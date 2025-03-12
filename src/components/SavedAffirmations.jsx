@@ -8,6 +8,15 @@ const SavedAffirmations = () => {
             <h2>Saved Affirmations</h2>
             {savedAffirmations.length > 0 ? (
                 <ul>
-                    {savedAffirmations.map((afirmation, index)) => (
-                </ul>
-        </div>
+                    {savedAffirmations.map((affirmation, index) => (
+                        <li key={index}>{affirmation}</li>
+                        ))}
+                        </ul>
+                        ) : (
+                            <p>No saved affirmations yet.</p>
+                            )}
+                          </div>
+                          );
+                        };
+
+                        export default SavedAffirmations;
