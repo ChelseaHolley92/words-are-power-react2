@@ -102,11 +102,12 @@ const App = () => {
           const handleCategoryChange = (event) => {
             setSelectedCategory(event.target.value);
           };
-                    
+               console.log("Applied Class", theme)     
+
                return (
               <div className={`app-container ${theme} `}>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
-                  {theme === "light" ? "Dark Mode" : "Light Mode"}
+                  {theme === "light" ? "Dark Mode" : theme ==="dark" ? "Pastel Mode" : "Light Mode"}
                 </button>
 
                 <Header />
