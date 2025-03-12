@@ -55,3 +55,12 @@ body {
     background-color: #ffebcd;
     color:#6a5acd;
   }
+
+  .pastel button {
+    background-color: #ffb6c1;
+    color:white;
+  }
+
+  .pastel .app-container {
+    background-color: #e6e6fa;
+  }

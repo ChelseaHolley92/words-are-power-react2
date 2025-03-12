@@ -37,15 +37,18 @@ const App = () => {
     } else if (theme === "dark")  {
       newTheme = "pastel";
     } else {
+    } newTheme = "light";
+    setTheme(newTheme);
+     
+    console.log("New Theme:" , newTheme);
 
-      }  newTheme = "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
    };
 
    useEffect(() => {
     document.body.className = theme;
-    const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
+     const saved = JSON.parse(localStorage.getItem("savedAffirmations")) || [];
      setSavedAffirmation(saved);
   }, [theme]);
    
