@@ -37,7 +37,8 @@ const App = () => {
     } else if (theme === "dark")  {
       newTheme = "pastel";
     } else {
-      newTheme = "light";
+
+      }  newTheme = "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
    };
