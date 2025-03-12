@@ -30,20 +30,9 @@ const App = () => {
    const [theme, setTheme] =useState(localStorage.getItem("theme") || "light");
    
    const toggleTheme = () => {
-    let newTheme;
-
-    if (theme === "light") {
-      newTheme = "dark";
-    } else if (theme === "dark")  {
-      newTheme = "pastel";
-    } else {
-    } newTheme = "light";
-    setTheme(newTheme);
-     
-    console.log("New Theme:" , newTheme);
-
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
+    const newTheme = theme === "light" ? "dark" : "light";
+     setTheme(newTheme);
+     localStorage.setItem("theme", newTheme);
    };
 
    useEffect(() => {
@@ -107,7 +96,7 @@ const App = () => {
                return (
               <div className={`app-container ${theme} `}>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
-                  {theme === "light" ? "Dark Mode" : theme === "dark" ? "Pastel Mode" : "Light Mode"}
+                  {theme === "light" ? "Dark Mode" : "Light Mode"}
                 </button>
 
                 <Header />
