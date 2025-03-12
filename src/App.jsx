@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Footer from './components/Footer.jsx';
 import Header from './components/Header';
 import AffirmationBox from './components/AffirmationBox';
 import Button from './components/Button.jsx';
 import CategoryDropdown from './components/CategoryDropdown';
 import NameInput from './components/NameInput';
+import SavedAffirmations from './SavedAffirmations';
 import  './App.css';
 
 
