@@ -30,10 +30,10 @@ const App = () => {
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffirmation] = useState([]);
-   const [theme, setTheme] =useState(localStorage.getItem("theme") || "default");
+   const [theme, setTheme] =useState(localStorage.getItem("theme") || "light");
    
    const toggleTheme = () => {
-    const newTheme = theme === "default" ? "dark" : "default";
+    const newTheme = theme === "light" ? "dark" : "light";
      setTheme(newTheme);
      localStorage.setItem("theme", newTheme);
    };
