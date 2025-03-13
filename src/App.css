@@ -103,4 +103,6 @@ body {
     margin: 20px auto;
     padding: 10px 15px;
     font-size: 14px;
+    width: fit-content;
+    border-radius: 8px;
   }
