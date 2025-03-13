@@ -115,6 +115,8 @@ const App = () => {
                 <Footer />
                 </>
                 } />
+                <Route path="/saved" element={<SavedAffirmations />} />
+                </Routes>
 
                 
                    <div className="saved-affirmations">
@@ -132,8 +134,8 @@ const App = () => {
 
                   <Footer />
 
-                  <Route path="/saved" element={<SavedAffirmations />} />
-                  </Routes>
+                  
+                 
                  </div>
                  </Router>
             );
