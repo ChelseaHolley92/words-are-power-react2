@@ -92,7 +92,7 @@ body {
       font-size: 1.8rem;
       text-align: center;
     }
-    
+
     .navbar {
       flex-direction: column;
       padding: 15px;
@@ -100,3 +100,6 @@ body {
     }
   } 
    
+  .theme-toggle-btn {
+    margin-top: 15px;
+  }
