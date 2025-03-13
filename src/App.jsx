@@ -5,7 +5,7 @@ import Header from './components/Header';
 import AffirmationBox from './components/AffirmationBox';
 import Button from './components/Button.jsx';
 import CategoryDropdown from './components/CategoryDropdown';
-import NameInput from './components/NameInput';
+import NameInput from './components/NameInPut.jsx';
 import SavedAffirmations from './components/SavedAffirmations.jsx';
 import NavBar from './components/NavBar.jsx';
 import  './App.css';
