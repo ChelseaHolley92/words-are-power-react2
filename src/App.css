@@ -24,6 +24,8 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    width: 90%;
   }       
   
     button:hover {
@@ -86,9 +88,15 @@ body {
   }
 
   @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
     .navbar {
       flex-direction: column;
       padding: 15px;
+      
     }
   } 
    
