@@ -120,7 +120,7 @@ const App = () => {
 
                 
                    <div className="saved-affirmations">
-                  <h2>Saved Affirmations</h2>
+                 
                   {savedAffirmations.length > 0? (
                      <ul>
                       {savedAffirmations.map((affirmation, index) => (
