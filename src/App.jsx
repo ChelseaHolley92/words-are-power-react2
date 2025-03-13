@@ -30,10 +30,10 @@ const App = () => {
    const [currentAffirmation, setCurrentAffirmation] = useState("");
    const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
    const [savedAffirmations, setSavedAffirmation] = useState([]);
-   const [theme, setTheme] =useState(localStorage.getItem("theme") || "light");
+   const [theme, setTheme] =useState(localStorage.getItem("theme") || "default");
    
    const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+    const newTheme = theme === "default" ? "dark" : "default";
      setTheme(newTheme);
      localStorage.setItem("theme", newTheme);
    };
@@ -104,7 +104,7 @@ const App = () => {
                 <Route path="/" element={
                   <>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
-                  {theme === "light" ? "Dark Mode" : "Light Mode"}
+                  {theme === "default" ? "Dark Mode" : "default Mode"}
                 </button>
                 <Header />
                 <NameInput onSave={handleSaveName} />

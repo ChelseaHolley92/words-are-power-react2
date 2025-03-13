@@ -49,12 +49,18 @@ body {
   
   }
 
-  .light {
-    background-color: white;
-    color:black;
+  .default {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ffccf9, #e6e6fa);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
 
-  .dark {
+    .dark {
     background-color: black;
     color:white;
   }
