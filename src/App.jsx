@@ -97,11 +97,15 @@ const App = () => {
                console.log("Applied Class", theme)     
 
                return (
+                <Router>
               <div className={`app-container ${theme} `}>
+                <NavBar/>
+                <Routes>
+                <Route path="/" element={
+                  <>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
                   {theme === "light" ? "Dark Mode" : "Light Mode"}
                 </button>
-
                 <Header />
                 <NameInput onSave={handleSaveName} />
                 <AffirmationBox affirmation={currentAffirmation}  /> 
@@ -109,6 +113,8 @@ const App = () => {
                 <Button onClick={handleSaveAffirmation} text="Save Affirmation" />
                 <CategoryDropdown categories={categories} onSelect={handleCategoryChange} />
                 <Footer />
+                </>
+                } />
 
                 
                    <div className="saved-affirmations">
@@ -125,8 +131,11 @@ const App = () => {
                  </div>
 
                   <Footer />
-                
-              </div>
+
+                  <Route path="/saved" element={<SavedAffirmations />} />
+                  </Routes>
+                 </div>
+                 </Router>
             );
           };              
 
