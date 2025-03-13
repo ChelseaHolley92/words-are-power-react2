@@ -104,7 +104,7 @@ const App = () => {
                 <Route path="/" element={
                   <>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
-                  {theme === "default" ? "Dark Mode" : "default Mode"}
+                  {theme === "Default" ? "Dark Mode" : "Default Mode"}
                 </button>
                 <Header />
                 <NameInput onSave={handleSaveName} />
