@@ -26,6 +26,7 @@ body {
     cursor: pointer;
     font-size: 14px;
     width: 90%;
+    gap: 15px;
   }       
   
     button:hover {
